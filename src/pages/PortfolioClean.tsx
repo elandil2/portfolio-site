@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
-import { useTheme } from '../context/ThemeContext';
 import { getAvatarUrl } from '../utils/avatar';
 import { lightTheme as theme } from '../styles/theme';
 
 const Container = styled.div`
   min-height: 100vh;
-  background: rgb(249, 250, 251);
+  background: #f7f7fc;
 `;
 
 const Nav = styled.nav`
@@ -15,10 +14,9 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(249, 250, 251, 0.95);
+  background: #0b182c;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 3px solid #00C853;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 100;
   padding: ${theme.spacing.md} ${theme.spacing.xl};
 
@@ -38,13 +36,13 @@ const NavContent = styled.div`
 const Logo = styled.a`
   font-size: 1.5rem;
   font-weight: 800;
-  color: rgb(0, 0, 0);
+  color: white;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #00C853;
+    color: #6bec6b;
   }
 `;
 
@@ -59,13 +57,13 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled.a`
-  color: rgb(0, 0, 0);
+  color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #00C853;
+    color: #6bec6b;
   }
 
   @media (max-width: 768px) {
@@ -79,43 +77,23 @@ const SocialIcon = styled(motion.a)`
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  color: rgb(0, 0, 0);
+  color: white;
   text-decoration: none;
   font-size: 1.2rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #00C853;
-    color: white;
-    border-color: #00C853;
+    background: #6bec6b;
+    color: #0b182c;
+    border-color: #6bec6b;
     transform: translateY(-4px) scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 200, 83, 0.3);
+    box-shadow: 0 8px 16px rgba(107, 236, 107, 0.3);
   }
 `;
 
-const ThemeToggle = styled(motion.button)`
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: #00C853;
-    border-color: #00C853;
-    transform: translateY(-4px) scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 200, 83, 0.3);
-  }
-`;
 
 const Main = styled.main`
   padding-top: 80px;
@@ -151,8 +129,8 @@ const Avatar = styled(motion.img)`
 
   &:hover {
     transform: scale(1.1) translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 200, 83, 0.3);
-    border-color: #00C853;
+    box-shadow: 0 12px 40px rgba(107, 236, 107, 0.3);
+    border-color: #6bec6b;
   }
 
   @media (max-width: 768px) {
@@ -182,7 +160,7 @@ const Name = styled(motion.h1)`
 const Title = styled(motion.h2)`
   font-size: 2rem;
   font-weight: 600;
-  color: #00C853;
+  color: #6bec6b;
   margin-bottom: ${theme.spacing.lg};
 
   @media (max-width: 768px) {
@@ -248,15 +226,15 @@ const ProjectCard = styled(motion.div)`
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 200, 83, 0.2);
-    border-color: #00C853;
+    box-shadow: 0 12px 40px rgba(107, 236, 107, 0.2);
+    border-color: #6bec6b;
   }
 `;
 
 const ProjectImage = styled.div`
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #00C853, #00E676);
+  background: linear-gradient(135deg, #6bec6b, #8fff8f);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,8 +267,8 @@ const TechStack = styled.div`
 
 const TechTag = styled.span`
   padding: 4px 12px;
-  background: rgba(0, 200, 83, 0.1);
-  border: 1px solid rgba(0, 200, 83, 0.3);
+  background: rgba(107, 236, 107, 0.1);
+  border: 1px solid rgba(107, 236, 107, 0.3);
   border-radius: 12px;
   font-size: 0.85rem;
   color: rgb(0, 0, 0);
@@ -374,7 +352,7 @@ const ModalBody = styled.div`
 const ModalImage = styled.div`
   width: 100%;
   height: 250px;
-  background: linear-gradient(135deg, #00C853, #00E676);
+  background: linear-gradient(135deg, #6bec6b, #8fff8f);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,7 +388,6 @@ const ModalSectionTitle = styled.h4`
 `;
 
 export const PortfolioClean = () => {
-  const { mode, toggleTheme } = useTheme();
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const placeholderProjects = [
@@ -461,13 +438,6 @@ export const PortfolioClean = () => {
             >
               🔗
             </SocialIcon>
-            <ThemeToggle
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {mode === 'light' ? '🌙' : '☀️'}
-            </ThemeToggle>
           </NavLinks>
         </NavContent>
       </Nav>
