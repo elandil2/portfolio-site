@@ -3,7 +3,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { useTheme } from './context/ThemeContext';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { lightTheme, darkTheme } from './styles/theme';
-import { Portfolio } from './pages/Portfolio';
+import { PortfolioClean } from './pages/PortfolioClean';
 import { AdminLayout } from './layouts/AdminLayout';
 import { Dashboard } from './pages/Dashboard';
 import { ProjectsManager } from './pages/ProjectsManager';
@@ -18,8 +18,8 @@ function App() {
       <GlobalStyles />
       <Router>
         <Routes>
-          {/* Public Portfolio Route - Main site visitors see this */}
-          <Route path="/" element={<Portfolio />} />
+          {/* Public Portfolio Route - Clean minimal design */}
+          <Route path="/" element={<PortfolioClean />} />
 
           {/* Admin Routes - Secret admin panel URL */}
           <Route path="/safi-admin-2024" element={<AdminLayout />}>
