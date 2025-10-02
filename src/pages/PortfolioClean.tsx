@@ -510,7 +510,7 @@ export const PortfolioClean = () => {
                 <strong>Tech Stack:</strong> Python, SQL, and cloud-based workflows (AWS, Dataiku).
               </p>
               <p>
-                <strong>Why clients hire me:</strong> I focus on delivering solutions that solve real business problems, not just building models. My work translates directly into smarter decisions, cost savings, and growth opportunities.
+                <strong>Why me?:</strong> I focus on delivering solutions that solve real business problems, not just building models. My work translates directly into smarter decisions, cost savings, and growth opportunities.
               </p>
               <p>
                 Master's in Computer Engineering with a strong background in predictive modeling and applied AI.
