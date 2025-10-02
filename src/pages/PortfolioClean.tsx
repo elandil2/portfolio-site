@@ -158,21 +158,32 @@ const Name = styled(motion.h1)`
 `;
 
 const Title = styled(motion.h2)`
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #6bec6b;
   margin-bottom: ${theme.spacing.lg};
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 `;
 
-const Bio = styled(motion.p)`
-  font-size: 1.15rem;
+const Bio = styled(motion.div)`
+  font-size: 1.1rem;
   color: rgb(100, 100, 100);
   line-height: 1.8;
   margin-bottom: ${theme.spacing.xl};
+  text-align: left;
+  max-width: 900px;
+
+  p {
+    margin-bottom: ${theme.spacing.md};
+  }
+
+  strong {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+  }
 `;
 
 const Section = styled.section`
@@ -482,9 +493,28 @@ export const PortfolioClean = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              Passionate about transforming data into actionable insights.
-              Specializing in machine learning, statistical analysis, and
-              creating impactful data-driven solutions.
+              <p>
+                I'm a Data & AI Specialist with 5+ years of experience in Machine Learning, MLOps, and Data Engineering, and 3+ years focused on AI solutions. I help businesses turn raw data into clear, actionable insights by building predictive models, automating pipelines, and delivering scalable analytics solutions.
+              </p>
+              <p><strong>What I bring:</strong></p>
+              <p>
+                <strong>Machine Learning & AI:</strong> Predictive modeling, classification, regression, and optimization.
+              </p>
+              <p>
+                <strong>MLOps & Data Pipelines:</strong> End-to-end workflows, deployment, and automation.
+              </p>
+              <p>
+                <strong>Data Visualization & Analytics:</strong> Power BI, Qlik Sense, and Python dashboards for business-ready insights.
+              </p>
+              <p>
+                <strong>Tech Stack:</strong> Python, SQL, and cloud-based workflows (AWS, Dataiku).
+              </p>
+              <p>
+                <strong>Why clients hire me:</strong> I focus on delivering solutions that solve real business problems, not just building models. My work translates directly into smarter decisions, cost savings, and growth opportunities.
+              </p>
+              <p>
+                Master's in Computer Engineering with a strong background in predictive modeling and applied AI.
+              </p>
             </Bio>
           </HeroContent>
         </Hero>
