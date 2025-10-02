@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { lightTheme as theme } from '../styles/theme';
 
 const SidebarContainer = styled(motion.nav)`
   width: 250px;
@@ -8,9 +9,9 @@ const SidebarContainer = styled(motion.nav)`
   position: fixed;
   left: 0;
   top: 0;
-  background: ${props => props.theme.colors.background};
-  border-right: 1px solid ${props => props.theme.colors.border};
-  padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md};
+  background: ${theme.colors.background};
+  border-right: 1px solid ${theme.colors.border};
+  padding: ${theme.spacing.xl} ${theme.spacing.md};
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -18,7 +19,7 @@ const SidebarContainer = styled(motion.nav)`
 
   @media (max-width: 768px) {
     width: 70px;
-    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.sm};
+    padding: ${theme.spacing.lg} ${theme.spacing.sm};
   }
 `;
 
@@ -28,7 +29,7 @@ const Logo = styled.div`
   background: linear-gradient(135deg, #03EF62, #00D4FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: ${props => props.theme.spacing.xxl};
+  margin-bottom: ${theme.spacing.xxl};
   text-align: center;
 
   @media (max-width: 768px) {
@@ -44,24 +45,24 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  margin-bottom: ${props => props.theme.spacing.xs};
+  margin-bottom: ${theme.spacing.xs};
 `;
 
 const StyledNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.sm};
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
-  color: ${props => props.theme.colors.textSecondary};
+  gap: ${theme.spacing.sm};
+  padding: ${theme.spacing.sm} ${theme.spacing.md};
+  color: ${theme.colors.textSecondary};
   text-decoration: none;
-  border-radius: ${props => props.theme.borderRadius.sm};
-  transition: all ${props => props.theme.transitions.fast};
+  border-radius: ${theme.borderRadius.sm};
+  transition: all ${theme.transitions.fast};
   font-size: 0.95rem;
   font-weight: 600;
 
   &:hover {
-    background: ${props => props.theme.colors.surface};
-    color: ${props => props.theme.colors.text};
+    background: ${theme.colors.surface};
+    color: ${theme.colors.text};
   }
 
   &.active {
@@ -84,20 +85,20 @@ const StyledNavLink = styled(NavLink)`
 const BackButton = styled.a`
   display: flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.sm};
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
-  color: ${props => props.theme.colors.textSecondary};
+  gap: ${theme.spacing.sm};
+  padding: ${theme.spacing.sm} ${theme.spacing.md};
+  color: ${theme.colors.textSecondary};
   text-decoration: none;
-  border-radius: ${props => props.theme.borderRadius.sm};
-  transition: all ${props => props.theme.transitions.fast};
+  border-radius: ${theme.borderRadius.sm};
+  transition: all ${theme.transitions.fast};
   font-size: 0.95rem;
   font-weight: 600;
-  border: 1px solid ${props => props.theme.colors.border};
+  border: 1px solid ${theme.colors.border};
   margin-top: auto;
 
   &:hover {
-    background: ${props => props.theme.colors.surface};
-    color: ${props => props.theme.colors.text};
+    background: ${theme.colors.surface};
+    color: ${theme.colors.text};
   }
 
   .label {
@@ -108,11 +109,11 @@ const BackButton = styled.a`
 `;
 
 const Footer = styled.div`
-  margin-top: ${props => props.theme.spacing.md};
-  padding-top: ${props => props.theme.spacing.lg};
-  border-top: 1px solid ${props => props.theme.colors.border};
+  margin-top: ${theme.spacing.md};
+  padding-top: ${theme.spacing.lg};
+  border-top: 1px solid ${theme.colors.border};
   font-size: 0.8rem;
-  color: ${props => props.theme.colors.textSecondary};
+  color: ${theme.colors.textSecondary};
   text-align: center;
 
   @media (max-width: 768px) {

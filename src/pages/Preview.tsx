@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import ReactPlayer from 'react-player';
 import { db } from '../db/database';
 import { Project } from '../types';
 import { lightTheme as theme } from '../styles/theme';

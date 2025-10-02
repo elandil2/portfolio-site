@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { lightTheme } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -13,8 +14,8 @@ export const GlobalStyles = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
+    background: ${lightTheme.colors.background};
+    color: ${lightTheme.colors.text};
     overflow-x: hidden;
     min-height: 100vh;
     transition: background 0.3s ease, color 0.3s ease;
@@ -33,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: ${props => props.theme.colors.surface};
+    background: ${lightTheme.colors.surface};
   }
 
   ::-webkit-scrollbar-thumb {

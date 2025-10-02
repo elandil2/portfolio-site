@@ -5,9 +5,6 @@ export const getAvatarUrl = (): string => {
   // Check if avatar exists in public folder
   // You can place your photo as /public/avatar.jpg or /public/avatar.png
 
-  // Try common image formats
-  const formats = ['jpg', 'jpeg', 'png', 'webp'];
-
   // For now, return the path - the browser will handle if it exists
   // You should place your image in public/avatar.jpg
   return '/avatar.jpg';

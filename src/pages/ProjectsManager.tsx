@@ -278,7 +278,7 @@ export const ProjectsManager = () => {
           </Button>
         </EmptyState>
       ) : (
-        <ProjectsGrid axis="y" values={filteredProjects} onReorder={handleReorder}>
+        <ProjectsGrid axis="y" values={filteredProjects} onReorder={handleReorder as any}>
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}

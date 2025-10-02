@@ -269,8 +269,7 @@ export const Settings = () => {
             onChange={importJSON}
           />
           <Button
-            as="label"
-            htmlFor="import-file"
+            onClick={() => document.getElementById('import-file')?.click()}
             style={{ cursor: 'pointer' }}
           >
             Import JSON

@@ -6,6 +6,7 @@ import { Project } from '../types';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import { useTheme } from '../context/ThemeContext';
 import { getAvatarUrl } from '../utils/avatar';
+import { lightTheme as theme } from '../styles/theme';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -17,65 +18,65 @@ const Header = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
-  background: ${props => props.theme.colors.background}95;
+  padding: ${theme.spacing.md} ${theme.spacing.xl};
+  background: ${theme.colors.background}95;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${theme.colors.border};
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @media (max-width: 768px) {
-    padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+    padding: ${theme.spacing.sm} ${theme.spacing.md};
   }
 `;
 
 const Logo = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text};
+  color: ${theme.colors.text};
 `;
 
 const ThemeToggle = styled(motion.button)`
-  background: ${props => props.theme.colors.surface};
-  border: 1px solid ${props => props.theme.colors.border};
+  background: ${theme.colors.surface};
+  border: 1px solid ${theme.colors.border};
   border-radius: 50px;
-  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+  padding: ${theme.spacing.xs} ${theme.spacing.sm};
   cursor: pointer;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.xs};
-  transition: all ${props => props.theme.transitions.fast};
+  gap: ${theme.spacing.xs};
+  transition: all ${theme.transitions.fast};
 
   &:hover {
-    background: ${props => props.theme.colors.surfaceHover};
+    background: ${theme.colors.surfaceHover};
   }
 `;
 
 const Main = styled.main`
-  padding: ${props => props.theme.spacing.xxl} ${props => props.theme.spacing.xl};
-  padding-top: calc(${props => props.theme.spacing.xxl} + 80px);
+  padding: ${theme.spacing.xxl} ${theme.spacing.xl};
+  padding-top: calc(${theme.spacing.xxl} + 80px);
 
   @media (max-width: 768px) {
-    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.md};
-    padding-top: calc(${props => props.theme.spacing.lg} + 80px);
+    padding: ${theme.spacing.lg} ${theme.spacing.md};
+    padding-top: calc(${theme.spacing.lg} + 80px);
   }
 `;
 
 const Hero = styled.div`
   display: flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.xxl};
+  gap: ${theme.spacing.xxl};
   max-width: 1200px;
-  margin: 0 auto ${props => props.theme.spacing.xxl};
-  padding: ${props => props.theme.spacing.xxl} 0;
+  margin: 0 auto ${theme.spacing.xxl};
+  padding: ${theme.spacing.xxl} 0;
 
   @media (max-width: 968px) {
     flex-direction: column;
     text-align: center;
-    gap: ${props => props.theme.spacing.xl};
+    gap: ${theme.spacing.xl};
   }
 `;
 
@@ -88,7 +89,7 @@ const ProfileImage = styled(motion.div)`
   height: 280px;
   border-radius: 50%;
   overflow: hidden;
-  border: 8px solid ${props => props.theme.colors.background};
+  border: 8px solid ${theme.colors.background};
   box-shadow: 0 20px 60px rgba(5, 25, 45, 0.15);
   position: relative;
 
@@ -123,15 +124,15 @@ const ContentSection = styled(motion.div)`
 const Greeting = styled(motion.div)`
   display: inline-flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.xs};
-  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
+  gap: ${theme.spacing.xs};
+  padding: ${theme.spacing.xs} ${theme.spacing.md};
   background: linear-gradient(135deg, rgba(3, 239, 98, 0.1), rgba(0, 212, 255, 0.1));
-  border: 2px solid ${props => props.theme.colors.secondary};
+  border: 2px solid ${theme.colors.secondary};
   border-radius: 50px;
   font-size: 0.95rem;
   font-weight: 600;
-  color: ${props => props.theme.colors.text};
-  margin-bottom: ${props => props.theme.spacing.md};
+  color: ${theme.colors.text};
+  margin-bottom: ${theme.spacing.md};
 
   span {
     animation: wave 2s ease-in-out infinite;
@@ -147,8 +148,8 @@ const Greeting = styled(motion.div)`
 const Name = styled(motion.h1)`
   font-size: 4rem;
   font-weight: 800;
-  color: ${props => props.theme.colors.text};
-  margin-bottom: ${props => props.theme.spacing.sm};
+  color: ${theme.colors.text};
+  margin-bottom: ${theme.spacing.sm};
   line-height: 1.1;
 
   @media (max-width: 968px) {
@@ -166,7 +167,7 @@ const JobTitle = styled(motion.h2)`
   background: linear-gradient(135deg, #03EF62, #00D4FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: ${props => props.theme.spacing.lg};
+  margin-bottom: ${theme.spacing.lg};
 
   @media (max-width: 968px) {
     font-size: 1.75rem;
@@ -175,19 +176,19 @@ const JobTitle = styled(motion.h2)`
 
 const Bio = styled(motion.p)`
   font-size: 1.15rem;
-  color: ${props => props.theme.colors.textSecondary};
+  color: ${theme.colors.textSecondary};
   line-height: 1.8;
-  margin-bottom: ${props => props.theme.spacing.lg};
+  margin-bottom: ${theme.spacing.lg};
   max-width: 600px;
 
   @media (max-width: 968px) {
-    margin: 0 auto ${props => props.theme.spacing.lg};
+    margin: 0 auto ${theme.spacing.lg};
   }
 `;
 
 const CTAButtons = styled(motion.div)`
   display: flex;
-  gap: ${props => props.theme.spacing.sm};
+  gap: ${theme.spacing.sm};
   flex-wrap: wrap;
 
   @media (max-width: 968px) {
@@ -198,20 +199,20 @@ const CTAButtons = styled(motion.div)`
 const CTAButton = styled(motion.a)<{ $primary?: boolean }>`
   display: inline-flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.xs};
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
+  gap: ${theme.spacing.xs};
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
   background: ${props => props.$primary
     ? 'linear-gradient(135deg, #03EF62, #00D4FF)'
-    : props.theme.colors.background};
-  color: ${props => props.$primary ? 'white' : props.theme.colors.text};
-  border: ${props => props.$primary ? 'none' : `2px solid ${props.theme.colors.border}`};
+    : theme.colors.background};
+  color: ${props => props.$primary ? 'white' : theme.colors.text};
+  border: ${props => props.$primary ? 'none' : `2px solid ${theme.colors.border}`};
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(5, 25, 45, 0.1);
-  transition: all ${props => props.theme.transitions.normal};
+  transition: all ${theme.transitions.normal};
 
   &:hover {
     transform: translateY(-2px);
@@ -222,9 +223,9 @@ const CTAButton = styled(motion.a)<{ $primary?: boolean }>`
 const SectionTitle = styled(motion.h2)`
   font-size: 2.5rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text};
+  color: ${theme.colors.text};
   text-align: center;
-  margin-bottom: ${props => props.theme.spacing.xl};
+  margin-bottom: ${theme.spacing.xl};
   position: relative;
 
   &::after {
@@ -243,7 +244,7 @@ const SectionTitle = styled(motion.h2)`
 const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: ${props => props.theme.spacing.xl};
+  gap: ${theme.spacing.xl};
   max-width: 1400px;
   margin: 0 auto;
 
@@ -253,12 +254,12 @@ const ProjectsGrid = styled.div`
 `;
 
 const ProjectCard = styled(motion.div)`
-  background: ${props => props.theme.colors.background};
-  border: 1px solid ${props => props.theme.colors.border};
-  border-radius: ${props => props.theme.borderRadius.lg};
+  background: ${theme.colors.background};
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.borderRadius.lg};
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(5, 25, 45, 0.08);
-  transition: all ${props => props.theme.transitions.normal};
+  transition: all ${theme.transitions.normal};
 
   &:hover {
     transform: translateY(-8px);
@@ -269,7 +270,7 @@ const ProjectCard = styled(motion.div)`
 const MediaContainer = styled.div`
   width: 100%;
   height: 240px;
-  background: ${props => props.theme.colors.surface};
+  background: ${theme.colors.surface};
   position: relative;
   overflow: hidden;
 
@@ -277,7 +278,7 @@ const MediaContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform ${props => props.theme.transitions.slow};
+    transition: transform ${theme.transitions.slow};
   }
 
   &:hover img {
@@ -286,32 +287,32 @@ const MediaContainer = styled.div`
 `;
 
 const CardContent = styled.div`
-  padding: ${props => props.theme.spacing.lg};
+  padding: ${theme.spacing.lg};
 `;
 
 const ProjectTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text};
-  margin-bottom: ${props => props.theme.spacing.sm};
+  color: ${theme.colors.text};
+  margin-bottom: ${theme.spacing.sm};
 `;
 
 const Description = styled.div`
-  color: ${props => props.theme.colors.textSecondary};
+  color: ${theme.colors.textSecondary};
   line-height: 1.7;
-  margin-bottom: ${props => props.theme.spacing.md};
+  margin-bottom: ${theme.spacing.md};
   font-size: 0.95rem;
 
   p {
-    margin: ${props => props.theme.spacing.xs} 0;
+    margin: ${theme.spacing.xs} 0;
   }
 `;
 
 const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: ${props => props.theme.spacing.xs};
-  margin-bottom: ${props => props.theme.spacing.md};
+  gap: ${theme.spacing.xs};
+  margin-bottom: ${theme.spacing.md};
 `;
 
 const TechTag = styled.span`
@@ -320,28 +321,28 @@ const TechTag = styled.span`
   border: 1px solid rgba(3, 239, 98, 0.3);
   border-radius: 20px;
   font-size: 0.85rem;
-  color: ${props => props.theme.colors.text};
+  color: ${theme.colors.text};
   font-weight: 600;
 `;
 
 const Links = styled.div`
   display: flex;
-  gap: ${props => props.theme.spacing.sm};
+  gap: ${theme.spacing.sm};
   flex-wrap: wrap;
 `;
 
 const Link = styled(motion.a)`
   display: inline-flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.xs};
-  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
+  gap: ${theme.spacing.xs};
+  padding: ${theme.spacing.xs} ${theme.spacing.md};
   background: linear-gradient(135deg, #03EF62, #00D4FF);
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: all ${props => props.theme.transitions.fast};
+  transition: all ${theme.transitions.fast};
 
   &:hover {
     transform: translateY(-2px);
@@ -351,19 +352,19 @@ const Link = styled(motion.a)`
 
 const EmptyState = styled.div`
   text-align: center;
-  padding: ${props => props.theme.spacing.xxl};
-  color: ${props => props.theme.colors.textSecondary};
+  padding: ${theme.spacing.xxl};
+  color: ${theme.colors.textSecondary};
 
   h3 {
     font-size: 1.5rem;
-    margin-bottom: ${props => props.theme.spacing.sm};
-    color: ${props => props.theme.colors.text};
+    margin-bottom: ${theme.spacing.sm};
+    color: ${theme.colors.text};
   }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: ${props => props.theme.spacing.sm};
+  gap: ${theme.spacing.sm};
   align-items: center;
 `;
 
@@ -373,13 +374,13 @@ const SocialLink = styled(motion.a)`
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: ${props => props.theme.colors.surface};
-  border: 1px solid ${props => props.theme.colors.border};
+  background: ${theme.colors.surface};
+  border: 1px solid ${theme.colors.border};
   border-radius: 50%;
-  color: ${props => props.theme.colors.text};
+  color: ${theme.colors.text};
   text-decoration: none;
   font-size: 1.2rem;
-  transition: all ${props => props.theme.transitions.fast};
+  transition: all ${theme.transitions.fast};
 
   &:hover {
     background: linear-gradient(135deg, #03EF62, #00D4FF);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
@@ -311,7 +311,7 @@ const QuillWrapper = styled.div`
 `;
 
 export const ProjectModal = ({ isOpen, onClose, onSave, project }: ProjectModalProps) => {
-  const { register, handleSubmit, setValue, watch } = useForm<Partial<Project>>({
+  const { register, handleSubmit } = useForm<Partial<Project>>({
     defaultValues: project || {},
   });
 

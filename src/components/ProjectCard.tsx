@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion, Reorder, useDragControls } from 'framer-motion';
 import styled from 'styled-components';
 import { Project } from '../types';
