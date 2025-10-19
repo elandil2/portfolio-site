@@ -34,10 +34,10 @@ book_rec_env/
 Thumbs.db
 desktop.ini
 
-# Data files (keep only for deployment)
-# Books.csv
-# Ratings.csv
-# Users.csv
+# Data files - too large for git, download from Kaggle if needed
+Books.csv
+Ratings.csv
+Users.csv
 
 # Model files
 *.pkl
