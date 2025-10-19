@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+book_rec_env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Streamlit (keep config.toml for deployment)
+# .streamlit/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Data files (keep only for deployment)
+# Books.csv
+# Ratings.csv
+# Users.csv
+
+# Model files
+*.pkl
+*.h5
+*.model
+trained_models.pkl
+model_comparison.csv
+
+# Logs
+*.log
+
+# Playwright
+.playwright-mcp/
+
+# Temporary files
+*.tmp
+*.temp

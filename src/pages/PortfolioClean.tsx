@@ -242,15 +242,31 @@ const ProjectCard = styled(motion.div)`
   }
 `;
 
-const ProjectImage = styled.div`
+const ProjectImage = styled.div<{ $imageUrl?: string }>`
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #6bec6b, #8fff8f);
+  background: ${props => props.$imageUrl
+    ? `url(${props.$imageUrl}) center/cover no-repeat`
+    : 'linear-gradient(135deg, #6bec6b, #8fff8f)'};
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
   color: white;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${props => props.$imageUrl
+      ? 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3))'
+      : 'none'};
+  }
 `;
 
 const ProjectContent = styled.div`
@@ -360,10 +376,12 @@ const ModalBody = styled.div`
   padding: ${theme.spacing.lg};
 `;
 
-const ModalImage = styled.div`
+const ModalImage = styled.div<{ $imageUrl?: string }>`
   width: 100%;
   height: 250px;
-  background: linear-gradient(135deg, #6bec6b, #8fff8f);
+  background: ${props => props.$imageUrl
+    ? `url(${props.$imageUrl}) center/cover no-repeat`
+    : 'linear-gradient(135deg, #6bec6b, #8fff8f)'};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,6 +389,20 @@ const ModalImage = styled.div`
   color: white;
   border-radius: 8px;
   margin-bottom: ${theme.spacing.lg};
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${props => props.$imageUrl
+      ? 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4))'
+      : 'none'};
+  }
 `;
 
 const ModalDescription = styled.p`
@@ -404,19 +436,48 @@ export const PortfolioClean = () => {
   const placeholderProjects = [
     {
       id: 1,
-      emoji: '📊',
-      title: 'Sales Forecasting Dashboard',
-      description: 'Machine learning model to predict sales trends using time-series analysis. Built interactive dashboard for stakeholders.',
-      tech: ['Python', 'TensorFlow', 'Pandas', 'Plotly'],
-      fullDescription: 'Developed a comprehensive sales forecasting system using advanced machine learning techniques. The model analyzes historical sales data, seasonal patterns, and market trends to provide accurate predictions for the next quarter. The interactive dashboard allows stakeholders to visualize trends, explore different scenarios, and make data-driven decisions.'
+      imageUrl: '/projects/book-recommendation/hero.png',
+      title: 'Book Recommendation System',
+      description: 'Production-ready recommendation engine using collaborative and content-based filtering on 271K books and 1.1M user ratings. Built with Streamlit for interactive discovery.',
+      tech: ['Python', 'Pandas', 'Scikit-learn', 'Streamlit', 'Cosine Similarity'],
+      fullDescription: 'Developed a sophisticated book recommendation system featuring dual algorithms: collaborative filtering (analyzing user behavior patterns) and content-based filtering (using book metadata). The system achieves 65-85% recommendation accuracy with sub-2 second response times. Built an interactive Streamlit web application with clean, professional UI for book discovery across 271,000 books.',
+      projectUrl: '/upwork_projects/Book_recommendation/index.html'
     },
     {
       id: 2,
-      emoji: '🤖',
-      title: 'Customer Churn Prediction',
-      description: 'Predictive model to identify customers likely to churn. Improved retention rate by 23% through targeted interventions.',
-      tech: ['Python', 'Scikit-learn', 'XGBoost', 'SQL'],
-      fullDescription: 'Built a machine learning model to predict customer churn with 89% accuracy. The system analyzes customer behavior patterns, transaction history, and engagement metrics to identify at-risk customers. This enabled the company to implement targeted retention strategies, resulting in a 23% improvement in retention rate and significant cost savings.'
+      imageUrl: '/projects/rule-based/hero.png',
+      title: 'Rule-Based Customer Segmentation',
+      description: 'Gaming analytics platform creating level-based customer personas using demographic data. Analyzed 5,000+ transactions to predict revenue potential and segment customers.',
+      tech: ['Python', 'Pandas', 'Seaborn', 'Customer Segmentation'],
+      fullDescription: 'Built a sophisticated rule-based customer segmentation system for a gaming company. Created level-based personas using demographic data (COUNTRY_SOURCE_SEX_AGE_CATEGORY) and classified customers into A/B/C segments based on revenue potential. The system provides actionable insights for targeted marketing, pricing strategies, and resource allocation.',
+      projectUrl: '/upwork_projects/Rule_based/index.html'
+    },
+    {
+      id: 3,
+      imageUrl: '/projects/lumora-rfm/hero.png',
+      title: 'Lumora Customer Segmentation - RFM Analysis',
+      description: 'RFM analysis of 19,945 e-commerce customers revealing 10 distinct segments. Delivered targeted marketing strategies for maximum ROI and customer lifetime value.',
+      tech: ['Python', 'RFM Analysis', 'Pandas', 'Business Intelligence'],
+      fullDescription: 'Comprehensive customer segmentation analysis using RFM (Recency, Frequency, Monetary) methodology for Lumora e-commerce platform. Analyzed 19,945 customers and identified 10 segments including Champions, Loyal Customers, At Risk, and Hibernating. Developed targeted marketing strategies for each segment to maximize ROI and reduce customer acquisition costs.',
+      projectUrl: '/upwork_projects/Lumora_project_rfm/index.html'
+    },
+    {
+      id: 4,
+      imageUrl: '/projects/telco-churn/hero.png',
+      title: 'Telco Customer Churn Prediction',
+      description: 'ML model predicting customer churn with 85%+ accuracy. Analyzed 7,043 customers using 6 algorithms including XGBoost, LightGBM, and CatBoost for proactive retention.',
+      tech: ['Python', 'XGBoost', 'LightGBM', 'CatBoost', 'Scikit-learn'],
+      fullDescription: 'Developed advanced machine learning model to predict customer churn for telecommunications company. Tested 6 algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM, CatBoost, SVM) with comprehensive hyperparameter optimization. Identified key churn predictors: contract type, tenure, monthly charges, and tech support. Delivered actionable recommendations reducing churn rate by 15-20%.',
+      projectUrl: '/upwork_projects/Telco_project/index.html'
+    },
+    {
+      id: 5,
+      imageUrl: '/projects/powerbi-scenario/hero.png',
+      title: 'Power BI Business Analytics Dashboard',
+      description: 'Interactive Power BI dashboards for real-time business intelligence. Automated reporting reducing report generation time by 70% through dynamic visualizations.',
+      tech: ['Power BI', 'DAX', 'Power Query', 'SQL', 'Data Modeling'],
+      fullDescription: 'Created comprehensive Power BI dashboards featuring interactive visualizations, real-time KPI monitoring, and custom DAX measures. Implemented automated data refresh from multiple sources with row-level security. Enabled stakeholders to make data-driven decisions through intuitive drill-down capabilities, cross-chart filtering, and mobile-responsive design.',
+      projectUrl: '/upwork_projects/powerbi_scenario/index.html'
     }
   ];
 
@@ -544,7 +605,7 @@ export const PortfolioClean = () => {
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedProject(project)}
               >
-                <ProjectImage>{project.emoji}</ProjectImage>
+                <ProjectImage $imageUrl={project.imageUrl} />
                 <ProjectContent>
                   <ProjectTitle>{project.title}</ProjectTitle>
                   <ProjectDescription>{project.description}</ProjectDescription>
@@ -583,7 +644,7 @@ export const PortfolioClean = () => {
                 <CloseButton onClick={() => setSelectedProject(null)}>×</CloseButton>
               </ModalHeader>
               <ModalBody>
-                <ModalImage>{selectedProject.emoji}</ModalImage>
+                <ModalImage $imageUrl={selectedProject.imageUrl} />
                 <ModalSection>
                   <ModalSectionTitle>Overview</ModalSectionTitle>
                   <ModalDescription>{selectedProject.fullDescription}</ModalDescription>
@@ -596,6 +657,36 @@ export const PortfolioClean = () => {
                     ))}
                   </ModalTechStack>
                 </ModalSection>
+                {selectedProject.projectUrl && (
+                  <ModalSection>
+                    <a
+                      href={selectedProject.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-block',
+                        padding: '12px 24px',
+                        background: 'linear-gradient(135deg, #6bec6b, #8fff8f)',
+                        color: '#0b182c',
+                        textDecoration: 'none',
+                        borderRadius: '8px',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 4px 12px rgba(107, 236, 107, 0.3)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = '0 6px 16px rgba(107, 236, 107, 0.4)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(107, 236, 107, 0.3)';
+                      }}
+                    >
+                      View Full Project Details →
+                    </a>
+                  </ModalSection>
+                )}
               </ModalBody>
             </ModalContent>
           </ModalOverlay>
